@@ -5,27 +5,29 @@ function getComputerChoice(computerPlay){
 }
 console.log(getComputerChoice())
 
-
 function playRound(playerSelection, computerSelection){
-    const choices = ["Rock", "Paper", "Scissors"];
-    return "";
+    // const choices = ["Rock", "Paper", "Scissors"];
+ 
+    // let result = "";
 
     if (playerSelection === computerSelection){
         result = "It's a tie!";
-
-    }else {
-        
-        switch (choices){
-            case "Rock": (computerSelection === "Scissors") ? "You win! Rock beats scissors." : "You lose! Paper beats rock.";
+    }
+    else {
+        switch (playerSelection){
+            case "Rock": 
+            result = (computerSelection === "Scissors") ? "You win! Rock beats scissors." : "You lose! Paper beats rock."
             break;
-            case "Paper": (computerSelection === "Rock") ? "You win! Paper beats rock." : "You lose! Scissors beats paper.";
+            case "Paper":
+            result = (computerSelection === "Rock") ? "You win! Paper beats rock." : "You lose! Scissors beats paper."
             break;
-            case "Scissors": (computerSelection === "Paper") ? "You win! Scissors beats paper." : "You lose! Rock beats scissors.";
+            case "Scissors": 
+            result = (computerSelection === "Paper") ? "You win! Scissors beats paper." : "You lose! Rock beats scissors."
             break;
         }
     }
 }
 
-const computerSelection = getComputerChoice();
-const playerSelection = "Rock";
-console.log(playerSelection, computerSelection);
+const computerSelection = getComputerChoice(); //required to define computerSelection
+const playerSelection = "Rock"; //required to define playerSelection
+console.log(playRound())
