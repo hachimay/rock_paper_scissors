@@ -11,7 +11,7 @@ function playRound(playerSelection, computerSelection){
     return "";
 
     if (playerSelection === computerSelection){
-        return "It's a tie!";
+        result = "It's a tie!";
 
     }else {
         
