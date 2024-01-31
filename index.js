@@ -6,9 +6,9 @@ function getComputerChoice(computerPlay){
 console.log(getComputerChoice())
 
 function playRound(playerSelection, computerSelection){
-    // const choices = ["Rock", "Paper", "Scissors"];
+    let result = "";
+
  
-    // let result = "";
 
     if (playerSelection === computerSelection){
         result = "It's a tie!";
@@ -26,8 +26,9 @@ function playRound(playerSelection, computerSelection){
             break;
         }
     }
+    return result;
 }
 
 const computerSelection = getComputerChoice(); //required to define computerSelection
 const playerSelection = "Rock"; //required to define playerSelection
-console.log(playRound())
+console.log(playRound(playerSelection, computerSelection))
