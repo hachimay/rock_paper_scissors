@@ -24,26 +24,18 @@ function checkWinner(playerSelection, computerSelection){
 }
 
 function playRound(playerSelection, computerSelection){
-    let result = "";
-
-    if (playerSelection === computerSelection){
-        result = "It's a tie!";
+    const result = checkWinner(playerSelection, computerSelection);
+    if (result == "Tie"){
+        return "It's a tie!" 
+    }
+    else if(result == "Player"){
+        return `You win! ${playerSelection} beats ${computerSelection}`
     }
     else {
-        switch (playerSelection){
-            case "Rock": 
-            result = (computerSelection === "Scissors") ? "You win! Rock beats scissors." : "You lose! Paper beats rock."
-            break;
-            case "Paper":
-            result = (computerSelection === "Rock") ? "You win! Paper beats rock." : "You lose! Scissors beats paper."
-            break;
-            case "Scissors": 
-            result = (computerSelection === "Paper") ? "You win! Scissors beats paper." : "You lose! Rock beats scissors."
-            break;
-        }
+        return `You lose! ${computerSelection} beats ${playerSelection}`
     }
-    return result;
 }
+
 
 function getPlayerChoice(){
     let validatedInput = false; 
@@ -65,6 +57,7 @@ function getPlayerChoice(){
 function game(){
     let scorePlayer = 0;
     let scoreComputer = 0;
+
     console.log("Welcome!") //if we want it to say this before each playRound.
     for (let i = 0; i < 5; i++) {
         const playerSelection = getPlayerChoice();
@@ -77,6 +70,7 @@ function game(){
             scoreComputer++; 
         }
     }
+
     console.log("Game Over")
     if(scorePlayer > scoreComputer){
         console.log("Player was the winner!");
@@ -89,10 +83,11 @@ function game(){
     }
 }
 
-
-// const computerSelection = getComputerChoice(); 
+game()
 // const playerSelection = getPlayerChoice();
-// console.log(playRound(playerSelection, computerSelection))
+// const computerSelection = getComputerChoice();
+// console.log(playRound(playerSelection, computerSelection));
+
 
 
 
