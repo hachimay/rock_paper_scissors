@@ -6,18 +6,18 @@ function getComputerChoice(){
 // console.log(getComputerChoice()) 
 
 function getPlayerChoice(){
-    let validatedInput = false; //if the player doesn't input/does it wrong, it'll ask again.
-    while(validatedInput == false){ //to do a loop while input is false. ie person mispelled or whatever.
-        const choice = prompt("Choose either rock, paper, or scissors"); // these are the possible inputs.
-        if(choice == null){ //meaning if input is empty, we'll continue asking.
+    let validatedInput = false; 
+    while(validatedInput == false){ 
+        const option = prompt("Choose either rock, paper, or scissors"); 
+        if(option== null){ 
             continue;
         }
-        //to check if user gave us a valid input (rock, paper, or scissors)
-        const choiceInLower = choice.toLowerCase(); //txt.toLowerCase() converts a string to lowercase.
-        // now we want to check if the input was even from our choices. so we'll use includes() array.
-        if(options.includes(choiceInLower)){
-            validatedInput = true; //this would stop our loop.
-            return choiceInLower; //and now we can change out our constPlayerSelection below from "rock"!!
+       
+        const optionInLower = option.toLowerCase(); 
+    
+        if(choices.includes(optionInLower)){
+            validatedInput = true; 
+            return optionInLower; 
         }
     }
 }
