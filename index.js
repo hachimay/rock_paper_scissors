@@ -1,8 +1,9 @@
 
-const choices = ["Rock", "Paper", "Scissors"];
+const choices = ["rock", "paper", "scissors"];
 
 function getComputerChoice(){
-    return choices[Math.floor(Math.random() * choices.length)];
+    const pickChoice = choices[Math.floor(Math.random() * choices.length)];
+    return pickChoice;
 }
 // console.log(getComputerChoice()) ** works
 
@@ -40,16 +41,14 @@ function playRound(playerSelection, computerSelection){
 function getPlayerChoice(){
     let validatedInput = false; 
     while(validatedInput == false){ 
-        const option = prompt("Choose either rock, paper, or scissors"); 
-        if(option== null){ 
+        const pickChoice = prompt("Choose either rock, paper, or scissors"); 
+        if(pickChoice == null){ 
             continue;
         }
-       
-        const optionInLower = option.toLowerCase(); 
-    
-        if(choices.includes(optionInLower)){
+        const pickChoiceInLower = pickChoice.toLowerCase(); 
+        if(choices.includes(pickChoiceInLower)){
             validatedInput = true; 
-            return optionInLower; 
+            return pickChoiceInLower; 
         }
     }
 }
