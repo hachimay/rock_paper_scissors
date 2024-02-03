@@ -1,21 +1,26 @@
 
-//Your game is going to play against the computer, so begin with a function called 
-//getComputerChoice that will randomly return either 'Rock', 'Paper', or 'Scissors'.
-//We'll use this function in the game to make the computers play.
-//Check with console to make sure it works.
-
-
 function getComputerChoice(){
     const choices = ["Rock", "Paper", "Scissors"];
     return choices[Math.floor(Math.random() * 3)];
 }
 // console.log(getComputerChoice()) 
 
-
-//Write a function that plays as single round of Rock Paper Scissors. The function
-//should take two parameters- the playerSelection and computerSelection- and then
-//return a string that declares the winner or tie of the round.
-//Use console to see the results.
+function getPlayerChoice(){
+    let validatedInput = false; //if the player doesn't input/does it wrong, it'll ask again.
+    while(validatedInput == false){ //to do a loop while input is false. ie person mispelled or whatever.
+        const choice = prompt("Choose either rock, paper, or scissors"); // these are the possible inputs.
+        if(choice == null){ //meaning if input is empty, we'll continue asking.
+            continue;
+        }
+        //to check if user gave us a valid input (rock, paper, or scissors)
+        const choiceInLower = choice.toLowerCase(); //txt.toLowerCase() converts a string to lowercase.
+        // now we want to check if the input was even from our choices. so we'll use includes() array.
+        if(options.includes(choiceInLower)){
+            validatedInput = true; //this would stop our loop.
+            return choiceInLower; //and now we can change out our constPlayerSelection below from "rock"!!
+        }
+    }
+}
 
 
 function playRound(playerSelection, computerSelection){
@@ -40,35 +45,13 @@ function playRound(playerSelection, computerSelection){
     return result;
 }
 
-let computerScore = 0;
-let playerScore = 0;
-for (let i = 0; i < 5; i++) {
-    const playerSelection = "Rock";
-    const computerSelection = getComputerChoice();
-    console.log(playRound("Rock", getComputerChoice()));
-    }
-    console.log({results: {
-        computerScore,
-        playerScore
-    }})
 
-
-// const computerSelection = getComputerChoice(); //create a variable to store computer's choice
-// const playerSelection = "Rock"; //create a variable to store player's choice (rock for now)
-// console.log(playRound(playerSelection, computerSelection))
+const computerSelection = getComputerChoice(); 
+const playerSelection = getPlayerChoice();
+console.log(playRound(playerSelection, computerSelection))
 
 
 //Write a new function called playGame(). Use the previous function inside of this one
 //to play a five round game that keeps score and reports a winner or loser at the end.
 
-// function game() {
-    //play game 5 times
-    // for (let i = 0; i < 5; i++) {
-        // const playerSelection = "Rock";
-        // const computerSelection = getComputerChoice();
-        // call playround function, passing into newly returned values
-
-    // console.log(playRound("Rock", getComputerChoice()));
-    // }
-// }
 
